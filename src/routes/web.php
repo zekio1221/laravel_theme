@@ -18,4 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('contact', [ContactController::class, 'index']);
+// Route::get('contacts', [ContactController::class, 'index']);
+Route::resource('contacts', 'App\Http\Controllers\ContactController')->only([
+    'index', 'create', 'store'
+]);

@@ -19,4 +19,9 @@ class ContactService implements ContactServiceInterface
   {
     return $this->contactRepository->getAll();
   }
+
+  public function getDepartmentNames()
+  {
+    return $this->contactRepository->getDepartmentNames();
+  }
 }
