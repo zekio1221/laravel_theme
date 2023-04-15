@@ -1,0 +1,21 @@
+.css {
+  color: red;
+}
+
+select, input,textarea {
+  display: block !important;
+}
+
+table {
+  border-collapse: collapse; /* セルの境界線を重ねる */
+  border-spacing: 0; /* セルとセルの隙間をなくす */
+}
+
+table th, td {
+  border: 1px solid #ccc; /* 境界線の太さと色を指定 */
+  padding: 8px; /* セル内の余白を指定 */
+}
+
+.contact_link_wrap {
+  margin-top: 10px;
+}

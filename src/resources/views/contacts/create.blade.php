@@ -1,3 +1,5 @@
+@extends('layouts.app') @section('title', 'お問合せフォーム')
+@section('content')
 <form method="POST" action="{{ route('contacts.store') }}">
   @csrf
   <div>
@@ -24,7 +26,7 @@
   </div>
   <div>
       <label for="content">お問い合わせ内容</label>
-      <textarea name="content">{{ old('content') }}</textarea>
+      <textarea name="content" cols="30" rows="5">{{ old('content') }}</textarea>
       @error('content')
           <div>{{ $message }}</div>
       @enderror
@@ -50,3 +52,7 @@
   </div>
   <button type="submit">送信</button>
 </form>
+<div class="contact_link_wrap"><a href="{{ route('contacts.index') }}">お問合せフォーム一覧へ</a></div>
+@endsection
+@section('footer')
+@endsection
