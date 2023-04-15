@@ -19,7 +19,7 @@
     @endforeach
   </tbody>
 </table>
-<div class="contact_link_wrap"><a href="{{ route('contacts.create') }}">お問合せフォーム一覧へ</a></div>
+<div class="contact_link_wrap"><a href="{{ route('contacts.create') }}">お問合せフォームへ</a></div>
 @endsection
 @section('footer')
 @endsection
