@@ -52,7 +52,7 @@
   </div>
   <button type="submit">送信</button>
 </form>
-<div class="contact_link_wrap"><a href="{{ route('contacts.index') }}">お問合せフォーム一覧へ</a></div>
+<div class="contact_link_wrap"><a href="{{ route('contacts.index') }}">お問合せ一覧へ</a></div>
 @endsection
 @section('footer')
 @endsection
