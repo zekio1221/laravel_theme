@@ -14,9 +14,7 @@ use App\Models\Department;
 class ContactRepository implements ContactRepositoryInterface
 {
   /**
-   * すべてのContactレコードを取得する。
-   *
-   * @return \Illuminate\Database\Eloquent\Collection|Contact[]
+   * @inheritDoc
    */
   public function getAll()
   {
@@ -24,12 +22,25 @@ class ContactRepository implements ContactRepositoryInterface
   }
 
   /**
-   * すべてのDepartmentのidとnameを取得する。
-   *
-   * @return \Illuminate\Support\Collection
+   * @inheritDoc
    */
   public function getDepartmentNames()
   {
     return Department::pluck('name', 'id');
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function createContact(string $name, string $email, string $content, int $age, int $gender, int $department_id)
+  {
+    return Contact::create([
+      'name' => $name,
+      'email' => $email,
+      'content' => $content,
+      'age' => $age,
+      'gender' => $gender,
+      'department_id' => $department_id
+    ]);
   }
 }

@@ -30,9 +30,7 @@ class ContactService implements ContactServiceInterface
   }
 
   /**
-   * データベースからすべての Contact モデルのレコードを取得する
-   *
-   * @return \Illuminate\Database\Eloquent\Collection
+   * @inheritDoc
    */
   public function getAll()
   {
@@ -40,12 +38,19 @@ class ContactService implements ContactServiceInterface
   }
 
   /**
-   * データベースから Department モデルの name カラムと id カラムの値を取得する
-   *
-   * @return \Illuminate\Support\Collection
+   * @inheritDoc
    */
   public function getDepartmentNames()
   {
     return $this->contactRepository->getDepartmentNames();
+  }
+
+  /**
+   * @inheritDoc
+   */
+
+  public function createContact(string $name, string $email, string $content, int $age, int $gender, int $department_id)
+  {
+    return $this->contactRepository->createContact($name, $email, $content, $age, $gender, $department_id);
   }
 }

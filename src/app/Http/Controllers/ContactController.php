@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
 use App\Services\ContactServiceInterface;
 use App\Models\Contact;
+use Illuminate\Support\Facades\DB;
 
 class ContactController extends Controller
 {
@@ -58,14 +59,17 @@ class ContactController extends Controller
      */
     public function store(ContactRequest $request)
     {
-        $contact = new Contact();
-        $contact->name = $request->name;
-        $contact->email = $request->email;
-        $contact->content = $request->content;
-        $contact->age = $request->age;
-        $contact->gender = $request->gender;
-        $contact->department_id = $request->department_id;
-        $contact->save();
+        DB::transaction(function () use ($request) {
+            $this->contactService->createContact(
+                $request->name,
+                $request->email,
+                $request->content,
+                (int)$request->age,
+                (int)$request->gender,
+                (int)$request->department_id,
+            );
+        });
+
         return redirect('contacts');
     }
 }
